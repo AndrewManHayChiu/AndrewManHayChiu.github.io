@@ -1,0 +1,12 @@
+---
+title: Origins
+author: Andrew Chiu
+date: '2019-02-27'
+slug: origins
+categories: []
+tags: []
+image: 'img/post/train_track.jpg'
+showonlyimage: no
+weight: 0
+---
+
