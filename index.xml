@@ -23,16 +23,5 @@ The high UV index also means staying indoor is the most sensible thing to do.
 So here I am, writing my first post on this blog.</description>
     </item>
     
-    <item>
-      <title>Customer Churn</title>
-      <link>https://AndrewManHayChiu.github.io/post/customer-churn/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://AndrewManHayChiu.github.io/post/customer-churn/</guid>
-      <description>IntroductionCustomer retention continues to be a problem for businesses.
-The dataThe data in this piece was downloaded from IBM Sample Data Sets.
-url &amp;lt;- &amp;quot;https://community.watsonanalytics.com/wp-content/uploads/2015/03/WA_Fn-UseC_-Telco-Customer-Churn.csv?cm_mc_uid=10924880594715512438678&amp;amp;cm_mc_sid_50200000=61751631551243867866&amp;amp;cm_mc_sid_52640000=17392971551243867874&amp;quot;data &amp;lt;- read.csv(file = url)glimpse(data)## Observations: 7,043## Variables: 21## $ customerID &amp;lt;fct&amp;gt; 7590-VHVEG, 5575-GNVDE, 3668-QPYBK, 7795-CFOC...## $ gender &amp;lt;fct&amp;gt; Female, Male, Male, Male, Female, Female, Mal...## $ SeniorCitizen &amp;lt;int&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, .</description>
-    </item>
-    
   </channel>
 </rss>

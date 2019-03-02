@@ -2,10 +2,11 @@
 title: Customer Churn
 author: Andrew Chiu
 date: '2019-02-27'
+image: img/post/australian summer.jpg
 slug: customer-churn
 categories: []
-tags: [churn]
-image: ''
+tags: [data science, churn]
+draft: true
 showonlyimage: no
 ---
 
