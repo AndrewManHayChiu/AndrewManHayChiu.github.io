@@ -6,10 +6,22 @@
     <description>Recent content on Data blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://AndrewManHayChiu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Origins</title>
+      <link>https://AndrewManHayChiu.github.io/post/origins/</link>
+      <pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://AndrewManHayChiu.github.io/post/origins/</guid>
+      <description>It’s hot today.
+It’s 36 degrees celcius, and in the southern-Australian summer, outdoors feels like the moment when you open the oven, and a burst of hot, dry air rushes towards your face. Only the heat doesn’t go away, instead of the smell of food is replaced by the smell of bushfires.
+The high UV index also means staying indoor is the most sensible thing to do.
+So here I am, writing my first post on this blog.</description>
+    </item>
     
     <item>
       <title>Customer Churn</title>
@@ -20,15 +32,6 @@
       <description>IntroductionCustomer retention continues to be a problem for businesses.
 The dataThe data in this piece was downloaded from IBM Sample Data Sets.
 url &amp;lt;- &amp;quot;https://community.watsonanalytics.com/wp-content/uploads/2015/03/WA_Fn-UseC_-Telco-Customer-Churn.csv?cm_mc_uid=10924880594715512438678&amp;amp;cm_mc_sid_50200000=61751631551243867866&amp;amp;cm_mc_sid_52640000=17392971551243867874&amp;quot;data &amp;lt;- read.csv(file = url)glimpse(data)## Observations: 7,043## Variables: 21## $ customerID &amp;lt;fct&amp;gt; 7590-VHVEG, 5575-GNVDE, 3668-QPYBK, 7795-CFOC...## $ gender &amp;lt;fct&amp;gt; Female, Male, Male, Male, Female, Female, Mal...## $ SeniorCitizen &amp;lt;int&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, .</description>
-    </item>
-    
-    <item>
-      <title>Origins</title>
-      <link>https://AndrewManHayChiu.github.io/post/origins/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://AndrewManHayChiu.github.io/post/origins/</guid>
-      <description></description>
     </item>
     
   </channel>
