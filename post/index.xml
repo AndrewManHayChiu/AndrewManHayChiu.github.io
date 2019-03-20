@@ -2,24 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Data blog</title>
-    <link>https://AndrewManHayChiu.github.io/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Data blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://AndrewManHayChiu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Tennis matches</title>
+      <link>/post/tennis-matches/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/tennis-matches/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualisation</title>
+      <link>/post/visualisation/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/visualisation/</guid>
+      <description>When I was young, I didn’t give a shi* about presentation.
+I recall a school project, where the evaluation matrix specifically saidpresentation would make up 50% of the score.
+I think I only presented numbers and text.
+And gave up 50% of the score.
+Fast forward 20 years, and I’m now wiser to a truth that I had no inkling ofas a child: humans are visual animals.</description>
+    </item>
+    
+    <item>
+      <title>Why R</title>
+      <link>/post/why-r/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/why-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plumber API</title>
+      <link>/post/plumber-api/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/plumber-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Origins</title>
-      <link>https://AndrewManHayChiu.github.io/post/origins/</link>
+      <link>/post/origins/</link>
       <pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://AndrewManHayChiu.github.io/post/origins/</guid>
+      <guid>/post/origins/</guid>
       <description>It’s hot today.
-It’s 36 degrees celcius, and in the southern-Australian summer, outdoors feels like the moment when you open the oven, and a burst of hot, dry air rushes towards your face. Only the heat doesn’t go away, instead of the smell of food is replaced by the smell of bushfires.
-The high UV index also means staying indoor is the most sensible thing to do.
+It’s 36 degrees celcius, and in the southern-Australian summer,outdoors feels like the moment when you open the oven,and a burst of hot, dry air rushes towards your face.Only the heat doesn’t go away, instead of the smell of food is replaced by thesmell of bushfires.
+The high UV index also means staying indoor is the most sensiblething to do.
 So here I am, writing my first post on this blog.</description>
     </item>
     

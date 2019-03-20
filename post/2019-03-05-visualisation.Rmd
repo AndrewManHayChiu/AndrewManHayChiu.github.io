@@ -1,0 +1,306 @@
+---
+title: Visualisation
+author: Andrew Chiu
+date: '2019-03-05'
+slug: visualisation
+categories: []
+tags:
+  - Data Visualisation
+image: 'img/post/nachi.jpg'
+showonlyimage: no
+draft: false
+output:
+  html_document:
+    code_folding: "hide"
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+When I was young, I didn't give a shi* about presentation.
+
+I recall a school project, where the evaluation matrix specifically said
+presentation would make up 50% of the score. 
+
+I think I only presented numbers and text. 
+
+And gave up 50% of the score.
+
+Fast forward 20 years, and I'm now wiser to a truth that I had no inkling of
+as a child: humans are visual animals.
+
+As my blog is about data science, 
+I think it's fitting to start one of the earlier posts about visualisation,
+because future posts are going to rely on this.
+
+----------------------------------------------------------------------------
+
+As many data people will relate to, I work in an environment where most
+data visualisations are still created using Microsoft Excel or PowerPoint.
+
+They're functional. They get the job done. But they lack life.
+
+When all charts start to look the same, insights start to blur.
+
+I don't promote a completely different look to each visualisation; 
+that would be too chaotic.
+But I think analyst should develop their own style.
+
+----------------------------------------------------------------------------
+
+I had to pick a data set, and my friends and I have been talking about retirement. 
+So I've picked a data set relating to this topic: Life Expectancy.
+
+R is my go to, so any code you see below can be followed in RStudio.
+
+Below, I'll go through how I create various types of charts:
+
+* Bar chart
+* Line chart
+* 
+
+#### Libraries
+
+```{r}
+library(WDI)     # World bank data API
+library(dplyr)   # data manipulation
+library(tidyr)   # data manipulation
+library(ggplot2) # visualisation
+```
+
+
+#### Download data from World Bank
+
+The data used is available from the (World Bank)[https://data.worldbank.org/indicator/SP.DYN.LE00.IN?view=map.
+
+The R package *WDI* helps to search and download data from the World Bank by
+providing the World Bank's *indicator* for the data set.
+
+We can do a search as follows:
+
+```{r}
+WDIsearch(string = "life expectancy at birth")
+```
+
+Let's get both *male* and *female* data by using the following codes:
+
+1. SP.DYN.LE00.MA.IN
+2. SP.DYN.LE00.FE.IN
+
+```{r}
+male   <- WDI(country = "all", indicator = "SP.DYN.LE00.MA.IN", start = 1960, end = 2016)
+female <- WDI(country = "all", indicator = "SP.DYN.LE00.FE.IN", start = 1960, end = 2016)
+
+## Add gender column
+male$gender   <- "Male"
+female$gender <- "Female"
+
+## Change column name
+names(male)[3]   <- "life.expectancy"
+names(female)[3] <- "life.expectancy"
+
+## Combine data together
+data <- rbind(male, female)
+```
+
+
+#### 1. Bar Chart
+
+The humble bar chart.
+
+Using the default ggplot aesthetic, it's clear that it's not publish-worthy.
+
+```{r bar_chart, fig.width = 6, fig.height = 3}
+data %>%
+  group_by(gender) %>%
+  summarise(avg.life.expectancy = mean(life.expectancy, na.rm = T)) %>%
+  ggplot(aes(x = gender, y = avg.life.expectancy)) +
+  geom_col()
+```
+
+Some of the things that I would change are:
+
+* Remove grey background
+* Change y-axis to stop at 70
+* Change y-axis titles
+* Remove x-axis title, because gender is obvious
+* Add title and subtitle
+* Add some colour, to represent LIFE
+
+The end result is the chart below.
+
+It doesn't need to be complex. 
+It just needs to delivery one message: 
+Women have a higher life expectancy than men
+
+```{r bar_chart_finessed, echo = T, fig.width = 6, fig.height = 3}
+data %>%
+  group_by(gender) %>%
+  summarise(avg.life.expectancy = mean(life.expectancy, na.rm = T)) %>%
+  ggplot(aes(x = gender, y = avg.life.expectancy, fill = gender)) +
+  geom_col(show.legend = FALSE ) +
+  scale_fill_manual(values = c("#88BA7B", "#88BA7B")) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                    hjust = 0.96),
+        axis.line.x = element_line(colour = "grey50"),
+        axis.ticks.y = element_line()) +
+  scale_y_continuous(breaks = seq(0, 90, by = 10), 
+                     limits = c(0, 70)) +
+  labs(x = "", y = "Age",
+       title = "Life Expectancy",
+       subtitle = "Worldwide")
+```
+
+#### 2. Line chart
+
+Line charts should be used to represent time-series data.
+
+Again, we start with a standard out-of-the-box ggplot.
+
+```{r line_chart, fig.width = 10, fig.height = 5}
+ggplot(data = data[data$country == "Hong Kong SAR, China", ],
+       aes(x = year, y = life.expectancy, colour = gender)) +
+  geom_line() +
+  labs(x = "", y = "Age",
+       title = "Life Expectancy",
+       subtitle = "Hong Kong SAR, China")
+
+```
+
+The reason the y-axis doesn't need to start at 0 is because there are no longer
+cues to show how much more a data point is than another,
+as is the case in a bar chart.
+
+
+```{r line_chart_finessed, echo = T, fig.width = 10, fig.height = 5}
+ggplot(data = data[data$country == "Hong Kong SAR, China", ],
+       aes(x = year, y = life.expectancy, colour = gender)) +
+  geom_line(size = 1) +
+  scale_colour_manual(values = c("#F18C8E", "#568EA6")) +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_line(linetype = "dotted", colour = "grey80"),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                    hjust = 0.96),
+        axis.line.x = element_line(colour = "grey50"),
+        axis.ticks.y = element_line(),
+        axis.ticks.x = element_line(),
+        legend.position = c(0.9, 0.2)) +
+  scale_y_continuous(breaks = seq(0, 100, by = 5), 
+                     limits = c(60, 90)) +
+  scale_x_continuous(breaks = seq(1960, 2020, by = 10)) +
+  labs(x = "", y = "Age",
+       title = "Life Expectancy",
+       subtitle = "Hong Kong SAR, China")
+  
+```
+
+#### Scatter plots
+
+```{r scatter_plot, fig.width = 7, fig.height = 5}
+data %>%
+  filter(year == 2016) %>%
+  select(-iso2c) %>%
+  spread(gender, life.expectancy) %>%
+  ggplot(aes(x = Male, y = Female)) +
+  geom_point() +
+  labs(title = "Gender gap in Life Expectancy")
+  
+```
+
+```{r scatter_plot_finessed, echo = T, fig.width = 7, fig.height = 5}
+## Extract Australia
+aus <- data %>%
+  filter(year == 2016,
+         country == "Australia") %>%
+  select(-iso2c) %>%
+  spread(gender, life.expectancy)
+
+## Extract Hong Kong
+hk <- data %>%
+  filter(year == 2016,
+         country == "Hong Kong SAR, China") %>%
+  select(-iso2c) %>%
+  spread(gender, life.expectancy)
+
+size <- 3
+shape <- 21
+
+data %>%
+  filter(year == 2016) %>%
+  select(-iso2c) %>%
+  spread(gender, life.expectancy) %>%
+  ggplot(aes(x = Male, y = Female)) +
+  geom_point(fill = "grey80", 
+             colour = "grey80",
+             size = size,
+             shape = shape,
+             alpha = 0.3) +
+  geom_abline(colour = "grey70", linetype = "dotted", size = 1) +
+  geom_point(data = aus, 
+             aes(x = Male, y = Female),
+             fill = "#F58426", 
+             colour = "#F58426",
+             shape = shape,
+             size = size) +
+  annotate(geom = "text", label = "Australia", x = 85, y = 82, 
+           size = 3.5, colour = "#F58426") +
+  annotate(geom = "segment", x = 83, y = 82, xend = 81, yend = 84, 
+           size = 0.5, colour = "#F58426") +
+  geom_point(data = hk, 
+             aes(x = Male, y = Female),
+             fill = "#007F91", 
+             colour = "#007F91",
+             shape = shape,
+             size = size) +
+  annotate(geom = "text", label = "Hong Kong", x = 77, y = 89, 
+           size = 3.5, colour = "#007F91") +
+    annotate(geom = "segment", x = 79.5, y = 88.5, xend = 80.5, yend = 87.5, 
+           size = 0.5, colour = "#007F91") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        axis.ticks.y = element_line(),
+        axis.ticks.x = element_line()) +
+  scale_x_continuous(limits = c(50, 90)) +
+  scale_y_continuous(limits = c(50, 90)) +
+  labs(title = "Gender gap in Life Expectancy",
+       subtitle = "Australia and Hong Kong",
+       x = "", y = "") +    # replace axis labels  with annotations inside the chart
+  annotate(geom = "text",
+           label = "Male", 
+           fontface = 2,
+           x = 80, y = 50, colour = "grey50") +
+  annotate(geom = "text",
+           label = "life expectancy", 
+           x = 85, y = 50, colour = "grey50") +
+  annotate(geom = "text",
+           label = "Female", 
+           fontface = 2,
+           x = 50, y = 75, colour = "grey50",
+           angle = 90) +
+  annotate(geom = "text",
+           label = "life expectancy", 
+           x = 50, y = 84, colour = "grey50",
+           angle = 90)
+  
+```
+
+
+#### Colours
+
+Colours contribute a lot to the look and feel of a visualisation.
+When plots use standard colours, it's easy to tell how much effort has been put
+into producing a data viz.
+
+I also have weakness in differentiating reds and greens (red-green colour
+blindness affects up to 8% of males), and so I avoid using colour palettes
+that contain these colours.
+
+I like to go to [Adobe Colors](https://color.adobe.com/explore/?filter=most-popular&time=month) to search for a colour palette to use.
+
+

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Visualisation</title>
+<meta name="description" content="Describe your website">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/owl.carousel.css">
+<link rel="stylesheet" href="/css/owl.theme.css">
+
+
+  <link href="/css/style.green.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-129283079-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="/">Data blog</a></h1>
+    
+      <p class="sidebar-p">Data Science. Photography. Travel.</p>
+    
+      <p class="sidebar-p">Melbourne, Australia</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="/post/">Home</a></li>
+      
+        <li><a href="/contact/">Get in touch</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  
+  <a href="https://www.instagram.com/andrewmhchiu/" title="" class="external instagram">
+    <i class="fa fa-instagram"></i>
+  </a>
+  
+  
+  <a href="mailto:amhchiu@gmail.com" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="https://www.linkedin.com/in/andrewmanhaychiu/" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://github.com/AndrewManHayChiu" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+          &copy;2019 Andrew Man Hay Chiu
+        
+        | Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="/">Data blog</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Visualisation</h1>
+         
+
+
+<p>When I was young, I didn’t give a shi* about presentation.</p>
+<p>I recall a school project, where the evaluation matrix specifically said
+presentation would make up 50% of the score.</p>
+<p>I think I only presented numbers and text.</p>
+<p>And gave up 50% of the score.</p>
+<p>Fast forward 20 years, and I’m now wiser to a truth that I had no inkling of
+as a child: humans are visual animals.</p>
+<p>As my blog is about data science,
+I think it’s fitting to start one of the earlier posts about visualisation,
+because future posts are going to rely on this.</p>
+<hr />
+<p>As many data people will relate to, I work in an environment where most
+data visualisations are still created using Microsoft Excel or PowerPoint.</p>
+<p>They’re functional. They get the job done. But they lack life.</p>
+<p>When all charts start to look the same, insights start to blur.</p>
+<p>I don’t promote a completely different look to each visualisation;
+that would be too chaotic.
+But I think analyst should develop their own style.</p>
+<hr />
+<p>I had to pick a data set, and my friends and I have been talking about retirement.
+So I’ve picked a data set relating to this topic: Life Expectancy.</p>
+<p>R is my go to, so any code you see below can be followed in RStudio.</p>
+<p>Below, I’ll go through how I create various types of charts:</p>
+<ul>
+<li>Bar chart</li>
+<li>Line chart</li>
+<li></li>
+</ul>
+<div id="libraries" class="section level4">
+<h4>Libraries</h4>
+<pre class="r"><code>library(WDI)     # World bank data API
+library(dplyr)   # data manipulation
+library(tidyr)   # data manipulation
+library(ggplot2) # visualisation</code></pre>
+</div>
+<div id="download-data-from-world-bank" class="section level4">
+<h4>Download data from World Bank</h4>
+<p>The data used is available from the (World Bank)[<a href="https://data.worldbank.org/indicator/SP.DYN.LE00.IN?view=map" class="uri">https://data.worldbank.org/indicator/SP.DYN.LE00.IN?view=map</a>.</p>
+<p>The R package <em>WDI</em> helps to search and download data from the World Bank by
+providing the World Bank’s <em>indicator</em> for the data set.</p>
+<p>We can do a search as follows:</p>
+<pre class="r"><code>WDIsearch(string = &quot;life expectancy at birth&quot;)</code></pre>
+<pre><code>##      indicator           name                                      
+## [1,] &quot;SP.DYN.LE00.MA.IN&quot; &quot;Life expectancy at birth, male (years)&quot;  
+## [2,] &quot;SP.DYN.LE00.IN&quot;    &quot;Life expectancy at birth, total (years)&quot; 
+## [3,] &quot;SP.DYN.LE00.FE.IN&quot; &quot;Life expectancy at birth, female (years)&quot;</code></pre>
+<p>Let’s get both <em>male</em> and <em>female</em> data by using the following codes:</p>
+<ol style="list-style-type: decimal">
+<li>SP.DYN.LE00.MA.IN</li>
+<li>SP.DYN.LE00.FE.IN</li>
+</ol>
+<pre class="r"><code>male   &lt;- WDI(country = &quot;all&quot;, indicator = &quot;SP.DYN.LE00.MA.IN&quot;, start = 1960, end = 2016)
+female &lt;- WDI(country = &quot;all&quot;, indicator = &quot;SP.DYN.LE00.FE.IN&quot;, start = 1960, end = 2016)
+
+## Add gender column
+male$gender   &lt;- &quot;Male&quot;
+female$gender &lt;- &quot;Female&quot;
+
+## Change column name
+names(male)[3]   &lt;- &quot;life.expectancy&quot;
+names(female)[3] &lt;- &quot;life.expectancy&quot;
+
+## Combine data together
+data &lt;- rbind(male, female)</code></pre>
+</div>
+<div id="bar-chart" class="section level4">
+<h4>1. Bar Chart</h4>
+<p>The humble bar chart.</p>
+<p>Using the default ggplot aesthetic, it’s clear that it’s not publish-worthy.</p>
+<pre class="r"><code>data %&gt;%
+  group_by(gender) %&gt;%
+  summarise(avg.life.expectancy = mean(life.expectancy, na.rm = T)) %&gt;%
+  ggplot(aes(x = gender, y = avg.life.expectancy)) +
+  geom_col()</code></pre>
+<p><img src="/post/2019-03-05-visualisation_files/figure-html/bar_chart-1.png" width="576" /></p>
+<p>Some of the things that I would change are:</p>
+<ul>
+<li>Remove grey background</li>
+<li>Change y-axis to stop at 70</li>
+<li>Change y-axis titles</li>
+<li>Remove x-axis title, because gender is obvious</li>
+<li>Add title and subtitle</li>
+<li>Add some colour, to represent LIFE</li>
+</ul>
+<p>The end result is the chart below.</p>
+<p>It doesn’t need to be complex.
+It just needs to delivery one message:
+Women have a higher life expectancy than men</p>
+<pre class="r"><code>data %&gt;%
+  group_by(gender) %&gt;%
+  summarise(avg.life.expectancy = mean(life.expectancy, na.rm = T)) %&gt;%
+  ggplot(aes(x = gender, y = avg.life.expectancy, fill = gender)) +
+  geom_col(show.legend = FALSE ) +
+  scale_fill_manual(values = c(&quot;#88BA7B&quot;, &quot;#88BA7B&quot;)) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                    hjust = 0.96),
+        axis.line.x = element_line(colour = &quot;grey50&quot;),
+        axis.ticks.y = element_line()) +
+  scale_y_continuous(breaks = seq(0, 90, by = 10), 
+                     limits = c(0, 70)) +
+  labs(x = &quot;&quot;, y = &quot;Age&quot;,
+       title = &quot;Life Expectancy&quot;,
+       subtitle = &quot;Worldwide&quot;)</code></pre>
+<p><img src="/post/2019-03-05-visualisation_files/figure-html/bar_chart_finessed-1.png" width="576" /></p>
+</div>
+<div id="line-chart" class="section level4">
+<h4>2. Line chart</h4>
+<p>Line charts should be used to represent time-series data.</p>
+<p>Again, we start with a standard out-of-the-box ggplot.</p>
+<pre class="r"><code>ggplot(data = data[data$country == &quot;Hong Kong SAR, China&quot;, ],
+       aes(x = year, y = life.expectancy, colour = gender)) +
+  geom_line() +
+  labs(x = &quot;&quot;, y = &quot;Age&quot;,
+       title = &quot;Life Expectancy&quot;,
+       subtitle = &quot;Hong Kong SAR, China&quot;)</code></pre>
+<p><img src="/post/2019-03-05-visualisation_files/figure-html/line_chart-1.png" width="960" /></p>
+<p>The reason the y-axis doesn’t need to start at 0 is because there are no longer
+cues to show how much more a data point is than another,
+as is the case in a bar chart.</p>
+<pre class="r"><code>ggplot(data = data[data$country == &quot;Hong Kong SAR, China&quot;, ],
+       aes(x = year, y = life.expectancy, colour = gender)) +
+  geom_line(size = 1) +
+  scale_colour_manual(values = c(&quot;#F18C8E&quot;, &quot;#568EA6&quot;)) +
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.y = element_line(linetype = &quot;dotted&quot;, colour = &quot;grey80&quot;),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                    hjust = 0.96),
+        axis.line.x = element_line(colour = &quot;grey50&quot;),
+        axis.ticks.y = element_line(),
+        axis.ticks.x = element_line(),
+        legend.position = c(0.9, 0.2)) +
+  scale_y_continuous(breaks = seq(0, 100, by = 5), 
+                     limits = c(60, 90)) +
+  scale_x_continuous(breaks = seq(1960, 2020, by = 10)) +
+  labs(x = &quot;&quot;, y = &quot;Age&quot;,
+       title = &quot;Life Expectancy&quot;,
+       subtitle = &quot;Hong Kong SAR, China&quot;)</code></pre>
+<p><img src="/post/2019-03-05-visualisation_files/figure-html/line_chart_finessed-1.png" width="960" /></p>
+</div>
+<div id="scatter-plots" class="section level4">
+<h4>Scatter plots</h4>
+<pre class="r"><code>data %&gt;%
+  filter(year == 2016) %&gt;%
+  select(-iso2c) %&gt;%
+  spread(gender, life.expectancy) %&gt;%
+  ggplot(aes(x = Male, y = Female)) +
+  geom_point() +
+  labs(title = &quot;Gender gap in Life Expectancy&quot;)</code></pre>
+<p><img src="/post/2019-03-05-visualisation_files/figure-html/scatter_plot-1.png" width="672" /></p>
+<pre class="r"><code>## Extract Australia
+aus &lt;- data %&gt;%
+  filter(year == 2016,
+         country == &quot;Australia&quot;) %&gt;%
+  select(-iso2c) %&gt;%
+  spread(gender, life.expectancy)
+
+## Extract Hong Kong
+hk &lt;- data %&gt;%
+  filter(year == 2016,
+         country == &quot;Hong Kong SAR, China&quot;) %&gt;%
+  select(-iso2c) %&gt;%
+  spread(gender, life.expectancy)
+
+size &lt;- 3
+shape &lt;- 21
+
+data %&gt;%
+  filter(year == 2016) %&gt;%
+  select(-iso2c) %&gt;%
+  spread(gender, life.expectancy) %&gt;%
+  ggplot(aes(x = Male, y = Female)) +
+  geom_point(fill = &quot;grey80&quot;, 
+             colour = &quot;grey80&quot;,
+             size = size,
+             shape = shape,
+             alpha = 0.3) +
+  geom_abline(colour = &quot;grey70&quot;, linetype = &quot;dotted&quot;, size = 1) +
+  geom_point(data = aus, 
+             aes(x = Male, y = Female),
+             fill = &quot;#F58426&quot;, 
+             colour = &quot;#F58426&quot;,
+             shape = shape,
+             size = size) +
+  annotate(geom = &quot;text&quot;, label = &quot;Australia&quot;, x = 85, y = 82, 
+           size = 3.5, colour = &quot;#F58426&quot;) +
+  annotate(geom = &quot;segment&quot;, x = 83, y = 82, xend = 81, yend = 84, 
+           size = 0.5, colour = &quot;#F58426&quot;) +
+  geom_point(data = hk, 
+             aes(x = Male, y = Female),
+             fill = &quot;#007F91&quot;, 
+             colour = &quot;#007F91&quot;,
+             shape = shape,
+             size = size) +
+  annotate(geom = &quot;text&quot;, label = &quot;Hong Kong&quot;, x = 77, y = 89, 
+           size = 3.5, colour = &quot;#007F91&quot;) +
+    annotate(geom = &quot;segment&quot;, x = 79.5, y = 88.5, xend = 80.5, yend = 87.5, 
+           size = 0.5, colour = &quot;#007F91&quot;) +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        axis.ticks.y = element_line(),
+        axis.ticks.x = element_line()) +
+  scale_x_continuous(limits = c(50, 90)) +
+  scale_y_continuous(limits = c(50, 90)) +
+  labs(title = &quot;Gender gap in Life Expectancy&quot;,
+       subtitle = &quot;Australia and Hong Kong&quot;,
+       x = &quot;&quot;, y = &quot;&quot;) +    # replace axis labels  with annotations inside the chart
+  annotate(geom = &quot;text&quot;,
+           label = &quot;Male&quot;, 
+           fontface = 2,
+           x = 80, y = 50, colour = &quot;grey50&quot;) +
+  annotate(geom = &quot;text&quot;,
+           label = &quot;life expectancy&quot;, 
+           x = 85, y = 50, colour = &quot;grey50&quot;) +
+  annotate(geom = &quot;text&quot;,
+           label = &quot;Female&quot;, 
+           fontface = 2,
+           x = 50, y = 75, colour = &quot;grey50&quot;,
+           angle = 90) +
+  annotate(geom = &quot;text&quot;,
+           label = &quot;life expectancy&quot;, 
+           x = 50, y = 84, colour = &quot;grey50&quot;,
+           angle = 90)</code></pre>
+<p><img src="/post/2019-03-05-visualisation_files/figure-html/scatter_plot_finessed-1.png" width="672" /></p>
+</div>
+<div id="colours" class="section level4">
+<h4>Colours</h4>
+<p>Colours contribute a lot to the look and feel of a visualisation.
+When plots use standard colours, it’s easy to tell how much effort has been put
+into producing a data viz.</p>
+<p>I also have weakness in differentiating reds and greens (red-green colour
+blindness affects up to 8% of males), and so I avoid using colour palettes
+that contain these colours.</p>
+<p>I like to go to <a href="https://color.adobe.com/explore/?filter=most-popular&amp;time=month">Adobe Colors</a> to search for a colour palette to use.</p>
+</div>
+
+         <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "andrewmanhaychiu" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.cookie.js"> </script>
+<script src="/js/ekko-lightbox.js"></script>
+<script src="/js/jquery.scrollTo.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/front.js"></script>
+
+</body>
+</html>

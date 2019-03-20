@@ -3,39 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://AndrewManHayChiu.github.io/post/origins/</loc>
+    <loc>/post/tennis-matches/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/visualisation/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/why-r/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/plumber-api/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/origins/</loc>
     <lastmod>2019-03-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://AndrewManHayChiu.github.io/contact/</loc>
+    <loc>/contact/</loc>
     <lastmod>2016-11-06T13:00:25+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://AndrewManHayChiu.github.io/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2016-11-05T21:05:33+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://AndrewManHayChiu.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://AndrewManHayChiu.github.io/</loc>
-    <lastmod>2019-03-02T00:00:00+00:00</lastmod>
+    <loc>/tags/data-visualisation/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://AndrewManHayChiu.github.io/post/</loc>
-    <lastmod>2019-03-02T00:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://AndrewManHayChiu.github.io/tags/</loc>
+    <loc>/post/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

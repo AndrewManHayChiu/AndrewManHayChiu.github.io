@@ -2,7 +2,7 @@
 title: "Origins"
 author: "Andrew Chiu"
 date: '2019-03-02'
-image: img/post/australian summer.jpg
+image: 'img/post/australian summer.jpg'
 showonlyimage: no
 slug: origins
 tags: []
