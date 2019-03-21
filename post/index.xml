@@ -6,24 +6,15 @@
     <description>Recent content in Posts on Data blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Tennis matches</title>
-      <link>/post/tennis-matches/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/tennis-matches/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Visualisation</title>
       <link>/post/visualisation/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/visualisation/</guid>
       <description>When I was young, I didn’t give a shi* about presentation.
@@ -31,24 +22,6 @@ I recall a school project, where the evaluation matrix specifically saidpresent
 I think I only presented numbers and text.
 And gave up 50% of the score.
 Fast forward 20 years, and I’m now wiser to a truth that I had no inkling ofas a child: humans are visual animals.</description>
-    </item>
-    
-    <item>
-      <title>Why R</title>
-      <link>/post/why-r/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/why-r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>plumber API</title>
-      <link>/post/plumber-api/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/plumber-api/</guid>
-      <description></description>
     </item>
     
     <item>

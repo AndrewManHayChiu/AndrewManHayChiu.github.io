@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data blog</title>
-    <link>/</link>
-    <description>Recent content on Data blog</description>
+    <title>Tutorial on Data blog</title>
+    <link>/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Data blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,18 +22,6 @@ I recall a school project, where the evaluation matrix specifically saidpresent
 I think I only presented numbers and text.
 And gave up 50% of the score.
 Fast forward 20 years, and I’m now wiser to a truth that I had no inkling ofas a child: humans are visual animals.</description>
-    </item>
-    
-    <item>
-      <title>Origins</title>
-      <link>/post/origins/</link>
-      <pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/origins/</guid>
-      <description>It’s hot today.
-It’s 36 degrees celcius, and in the southern-Australian summer,outdoors feels like the moment when you open the oven,and a burst of hot, dry air rushes towards your face.Only the heat doesn’t go away, instead of the smell of food is replaced by thesmell of bushfires.
-The high UV index also means staying indoor is the most sensiblething to do.
-So here I am, writing my first post on this blog.</description>
     </item>
     
   </channel>
