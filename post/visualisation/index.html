@@ -126,38 +126,26 @@ if (!doNotTrack) {
 
 
 <p>When I was young, I didn’t give a shi* about presentation.</p>
-<p>I recall a school project, where the evaluation matrix specifically said
-presentation would make up 50% of the score.</p>
+<p>I recall a school project, where the evaluation matrix specifically said presentation would make up 50% of the score.</p>
 <p>I think I only presented numbers and text.</p>
 <p>And gave up 50% of the score.</p>
-<p>Fast forward 20 years, and I’m now wiser to a truth that I had no inkling of
-as a child: humans are visual animals.</p>
-<p>As my blog is about data science,
-I think it’s fitting to start one of the earlier posts about visualisation,
-because future posts are going to rely on this.</p>
+<p>Fast forward 20 years, and I’m now wiser to a truth that I had no inkling of as a child: humans are visual animals.</p>
+<p>As my blog is about data science, I think it’s fitting to start one of the earlier posts about visualisation, because future posts are going to rely on this.</p>
 <hr />
-<p>As many data people will relate to, I work in an environment where most
-data visualisations are still created using Microsoft Excel or PowerPoint.</p>
+<p>As many data people will relate to, I work in an environment where most data visualisations are still created using Microsoft Excel or PowerPoint.</p>
 <p>They’re functional. They get the job done. But they lack life.</p>
 <p>When all charts start to look the same, insights start to blur.</p>
-<p>I don’t promote a completely different look to each visualisation;
-that would be too chaotic.
-But I think analyst should develop their own style.</p>
+<p>I don’t promote a completely different look to each visualisation; that would be too chaotic. But I think analyst should develop their own style.</p>
 <p>In developing this style, I some tips from <a href="https://www.perceptualedge.com/about.php">Stephen Few</a> <a href="http://www.perceptualedge.com/library.php">Show Me the Numbers</a>:</p>
 <ol style="list-style-type: decimal">
 <li>Reduce the non-data ink</li>
 <li>Enhancing the data ink</li>
 </ol>
-<p>This means to reduce the ink that does not pertain to the data being presented,
-then to emphasise the most important elements that do pertain to the data.</p>
+<p>This means to reduce the ink that does not pertain to the data being presented, then to emphasise the most important elements that do pertain to the data.</p>
 <p>I’ll go through this using examples below.</p>
-<p>Of course, the art of data visualisation cannot be explained by a blog post.
-I’m only putting down some of my most common processes into this post for
-future reference.</p>
+<p>Of course, the art of data visualisation cannot be explained by a blog post. I’m only putting down some of my most common processes into this post for future reference.</p>
 <hr />
-<p>In order to go through some examples, I had to pick a data set.
-My friends and I have been talking about retirement, lately.
-So I’ve picked a data set relating to this topic: Life Expectancy.</p>
+<p>In order to go through some examples, I had to pick a data set. My friends and I have been talking about retirement, lately. So I’ve picked a data set relating to this topic: Life Expectancy.</p>
 <p>R is my go to, so any code you see below can be followed in RStudio.</p>
 <p>Below, I’ll go through how I create various types of charts:</p>
 <ul>
@@ -177,8 +165,7 @@ library(ggplot2) # visualisation</code></pre>
 <div id="download-data-from-world-bank" class="section level4">
 <h4>Download data from World Bank</h4>
 <p>The data used is available from the <a href="https://data.worldbank.org/indicator/SP.DYN.LE00.IN?view=map">World Bank</a>.</p>
-<p>The R package <em>WDI</em> helps to search and download data from the World Bank by
-providing the World Bank’s <em>indicator</em> for the data set.</p>
+<p>The R package <em>WDI</em> helps to search and download data from the World Bank by providing the World Bank’s <em>indicator</em> for the data set.</p>
 <p>We can do a search as follows to find a dataset that we want, :</p>
 <pre class="r"><code>WDIsearch(string = &quot;life expectancy at birth&quot;)</code></pre>
 <pre><code>##      indicator           name                                      
@@ -207,9 +194,7 @@ data &lt;- rbind(male, female)</code></pre>
 <div id="bar-chart" class="section level4">
 <h4>1. Bar Chart</h4>
 <p>The humble bar chart.</p>
-<p>This is probably the most basic chart that exists in the work place.
-It makes sense to start here, with the objective of the graph to show that
-<em>females have a higher life expectancy than males</em>.</p>
+<p>This is probably the most basic chart that exists in the work place. It makes sense to start here, with the objective of the graph to show that <em>females have a higher life expectancy than males</em>.</p>
 <p>Using the default ggplot aesthetic, it’s clear that it’s not publish-worthy.</p>
 <pre class="r"><code>data %&gt;%
   group_by(gender) %&gt;%
@@ -219,16 +204,14 @@ It makes sense to start here, with the objective of the graph to show that
   labs(title = &quot;Life Expectancy&quot;,
        subtitle = &quot;Worldwide&quot;)</code></pre>
 <p><img src="/post/2019-03-05-visualisation_files/figure-html/bar_chart-1.png" width="576" /></p>
-<p>The first step in <strong>reducing the non-data ink</strong> is to <em>subtract unnecessary non-data ink</em>.
-Let’s first identify the non-data ink in the graph below:</p>
+<p>The first step in <strong>reducing the non-data ink</strong> is to <em>subtract unnecessary non-data ink</em>. Let’s first identify the non-data ink in the graph below:</p>
 <ul>
 <li>Grey background</li>
 <li>Vertical lines</li>
 <li>Horizontal lines</li>
 <li>X-axis title (gender)</li>
 </ul>
-<p>Removing these elements from the graph does not lose any meaning.
-So let’s do that first.</p>
+<p>Removing these elements from the graph does not lose any meaning. So let’s do that first.</p>
 <pre class="r"><code>data %&gt;%
   group_by(gender) %&gt;%
   summarise(avg.life.expectancy = mean(life.expectancy, na.rm = T)) %&gt;%
@@ -241,12 +224,8 @@ So let’s do that first.</p>
        title = &quot;Life Expectancy&quot;,
        subtitle = &quot;Worldwide&quot;)</code></pre>
 <p><img src="/post/2019-03-05-visualisation_files/figure-html/bar_chart_remove_ink-1.png" width="576" /></p>
-<p>The next step is to <em>de-emphasise and regularise the remaining non-data ink</em>.
-In this case, the non-data ink consists of the y-axis title,
-because it’s important that the reader knows what the y-axis represents,
-but it could be more succinct (given the title).</p>
-<p>Personally, I’d like to position it near the top of the chart,
-so I’ll change the title to “Age”, and change the location.</p>
+<p>The next step is to <em>de-emphasise and regularise the remaining non-data ink</em>. In this case, the non-data ink consists of the y-axis title, because it’s important that the reader knows what the y-axis represents, but it could be more succinct (given the title).</p>
+<p>Personally, I’d like to position it near the top of the chart, so I’ll change the title to “Age”, and change the location.</p>
 <pre class="r"><code>data %&gt;%
   group_by(gender) %&gt;%
   summarise(avg.life.expectancy = mean(life.expectancy, na.rm = T)) %&gt;%
@@ -262,8 +241,7 @@ so I’ll change the title to “Age”, and change the location.</p>
        subtitle = &quot;Worldwide&quot;)</code></pre>
 <p><img src="/post/2019-03-05-visualisation_files/figure-html/bar_chart_regularise-1.png" width="576" /></p>
 <p>The next step is to <strong>enhance the data ink</strong>.</p>
-<p>In this chart, the data ink is the ink in the bar charts.
-This is the element that represents the data.</p>
+<p>In this chart, the data ink is the ink in the bar charts. This is the element that represents the data.</p>
 <p>This includes the elements of:</p>
 <ul>
 <li>Width</li>
@@ -273,8 +251,7 @@ This is the element that represents the data.</p>
 <li>Hue</li>
 </ul>
 <p>I’m quite happy with most of the elements, except for colour.</p>
-<p>It currently lacks “life”, which I think is important given its about
-life expectancy. So I’ll change the colour palette to reflect this.</p>
+<p>It currently lacks “life”, which I think is important given its about life expectancy. So I’ll change the colour palette to reflect this.</p>
 <pre class="r"><code>data %&gt;%
   group_by(gender) %&gt;%
   summarise(avg.life.expectancy = mean(life.expectancy, na.rm = T)) %&gt;%
@@ -291,8 +268,7 @@ life expectancy. So I’ll change the colour palette to reflect this.</p>
        title = &quot;Life Expectancy&quot;,
        subtitle = &quot;Worldwide&quot;)</code></pre>
 <p><img src="/post/2019-03-05-visualisation_files/figure-html/bar_chart_enhance-1.png" width="576" /></p>
-<p>Finally, I think there’s a little too much white space for this graph,
-so I’d like to add a few more elements, as a matter of personal preference:</p>
+<p>Finally, I think there’s a little too much white space for this graph, so I’d like to add a few more elements, as a matter of personal preference:</p>
 <ul>
 <li>Add tick marks on the y-axis to increment by 10</li>
 <li>Increase the y-axis limit to 70, as it currently goes beyond 60, and to create more white space in the top-right corner</li>
@@ -320,10 +296,8 @@ so I’d like to add a few more elements, as a matter of personal preference:</p
 </div>
 <div id="line-chart" class="section level4">
 <h4>2. Line chart</h4>
-<p>Line charts are also one of the most basic charts to use, and should mainly be
-used to represent time-series data.</p>
-<p>I’ve seen plenty of examples where line charts have been used for categorical
-data; don’t do that….</p>
+<p>Line charts are also one of the most basic charts to use, and should mainly be used to represent time-series data.</p>
+<p>I’ve seen plenty of examples where line charts have been used for categorical data; don’t do that….</p>
 <p>This time, my objective is to see <em>how life expectancy at birth has changed over time</em>.</p>
 <p>We start with a standard out-of-the-box ggplot, which looks like this:</p>
 <pre class="r"><code>ggplot(data = data[data$country == &quot;Hong Kong SAR, China&quot;, ],
@@ -332,8 +306,7 @@ data; don’t do that….</p>
   labs(title = &quot;Life Expectancy&quot;,
        subtitle = &quot;Hong Kong SAR, China&quot;)</code></pre>
 <p><img src="/post/2019-03-05-visualisation_files/figure-html/line_chart-1.png" width="960" /></p>
-<p>In terms of <strong>reducing the non-data ink</strong> and <em>subtract unnecessary non-data ink</em>,
-I’ll remove the:</p>
+<p>In terms of <strong>reducing the non-data ink</strong> and <em>subtract unnecessary non-data ink</em>, I’ll remove the:</p>
 <ul>
 <li>Grey background</li>
 <li>Vertical lines</li>
@@ -355,10 +328,7 @@ I’ll remove the:</p>
 <li>Add more tick marks on the x and y axes</li>
 <li>Add a horizontal bar on the x-axis</li>
 </ul>
-<p>Note: The y-axis does not start on zero, unlike bar charts, because in the case
-of life expectancy, there is no country where life expectancy is zero. Also,
-the objective of this graph is to see the change over time, and starting
-the y-axis on 0 would not necessarily achieve this.</p>
+<p>Note: The y-axis does not start on zero, unlike bar charts, because in the case of life expectancy, there is no country where life expectancy is zero. Also, the objective of this graph is to see the change over time, and starting the y-axis on 0 would not necessarily achieve this.</p>
 <p>The final result is shown below:</p>
 <pre class="r"><code>ggplot(data = data[data$country == &quot;Hong Kong SAR, China&quot;, ],
        aes(x = year, y = life.expectancy, colour = gender)) +
@@ -387,10 +357,7 @@ the y-axis on 0 would not necessarily achieve this.</p>
 <h4>Scatter plots</h4>
 <p>The last of the basic plots that I want to touch on are scatter plots.</p>
 <p>These are good to show the relationship between two variables.</p>
-<p>In the example below, I want to show <em>the gender-bias in life expectancy
-between females and males</em>, as females often have a longer life than males.
-I’ll also add emphasis on two places: Australia and Hong Kong (I live in Australia,
-but my family is from Hong Kong).</p>
+<p>In the example below, I want to show <em>the gender-bias in life expectancy between females and males</em>, as females often have a longer life than males. I’ll also add emphasis on two places: Australia and Hong Kong (I live in Australia, but my family is from Hong Kong).</p>
 <p>Again, the out-of-the-box ggplot looks like this (it’s getting dull and boring):</p>
 <pre class="r"><code>data %&gt;%
   filter(year == 2016) %&gt;%
@@ -487,19 +454,14 @@ data %&gt;%
 </div>
 <div id="a-note-on-colours" class="section level4">
 <h4>A note on Colours</h4>
-<p>Colours contribute a lot to the look and feel of a visualisation.
-When plots use standard colours, it’s easy to tell how much effort has been put
-into producing a data viz.</p>
-<p>I also have weakness in differentiating reds and greens (red-green colour
-blindness affects up to 8% of males), and so I avoid using colour palettes
-that contain these colours.</p>
+<p>Colours contribute a lot to the look and feel of a visualisation. When plots use standard colours, it’s easy to tell how much effort has been put into producing a data viz.</p>
+<p>I also have weakness in differentiating reds and greens (red-green colour blindness affects up to 8% of males), and so I avoid using colour palettes that contain these colours.</p>
 <p>I like to go to <a href="https://color.adobe.com/explore/?filter=most-popular&amp;time=month">Adobe Colors</a> to search for a colour palette to use.</p>
 </div>
 <div id="summary" class="section level4">
 <h4>Summary</h4>
 <p>So that’s it for this post.</p>
-<p>It’s mainly for myself as a reference for creating future graphs,
-as I often find myself searching for the same stackoverflow results and help pages.</p>
+<p>It’s mainly for myself as a reference for creating future graphs, as I often find myself searching for the same stackoverflow results and help pages.</p>
 <p>:)</p>
 </div>
 
